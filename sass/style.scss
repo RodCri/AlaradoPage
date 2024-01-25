@@ -1,0 +1,14 @@
+@use 'mixins' as m;
+@use 'variables' as v;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
+}
