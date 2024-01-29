@@ -11,4 +11,225 @@ html{
 body{
   font-size: 1.8rem;
   font-family: 'Poppins', sans-serif;
+  background-color: v.$bg-body;
+}
+.header{
+  .nav{
+    --menu-mostrar: polygon(0 0, 100% 0, 100% 0, 0 0);;
+    --opacidad-abrir: 1;
+    --puntero-abrir: unset;
+    --opacidad-cerrar: 0;
+    --puntero-cerrar: none;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "logo menu";
+    align-items: center;
+    height: 64px;
+    padding: 0 24px;
+    @media(min-width:920px){
+      grid-template-columns: max-content 1fr max-content;
+      grid-template-areas: "logo menu cta";
+    }
+    &:has(:checked) {
+      --menu-mostrar: polygon(0 0, 100% 0, 100% 100%, 0 100%);;
+      --opacidad-abrir: 0;
+      --puntero-abrir: none;
+      --opacidad-cerrar: 1;
+      --puntero-cerrar: unset;
+    }
+    input[type="checkbox"] {
+      display: none;
+    }
+    &__menu {
+      padding: 6rem 0;
+      list-style: none;
+      position: fixed;
+      inset: 0 0 0 40%;
+      background-color: v.$text-white;
+      display: grid;
+      gap: 4rem;
+      justify-content: center;
+      align-content: flex-start;
+      border-radius: 1rem;
+      clip-path: var(--menu-mostrar);
+      transition: clip-path 0.5s;
+      text-align: center;
+      z-index: 10;
+      @media (min-width:920px) {
+        padding: 0;
+        clip-path: none;
+        inset: initial;
+        grid-auto-flow: column;
+        justify-self: center;
+        grid-area: menu;
+        align-self: center;
+        position: relative;
+        background-color: transparent;
+      }
+      .nav__link {
+        text-decoration: none;
+        color: v.$text-link-nav;
+        font-size: 4rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        @media (min-width:920px) {
+          color: v.$text-link-nav;
+          font-size: 1.6rem;
+          font-weight: 400;
+        }
+        &:hover {
+          color: v.$text-body;
+        }
+      }
+      .nav__link--active{
+        color: v.$text-body;
+        font-weight: 600;
+      }
+    }
+    .btn-request{
+      display: none;
+      @media(min-width: 920px){
+        display: flex;
+        grid-area: cta;
+      }
+    }
+    &__label {
+      grid-area: menu;
+      z-index: 100;
+      transition: 0.4s opacity;
+    }
+    &__label--open {
+      opacity: var(--opacidad-abrir);
+      pointer-events: var(--puntero-abrir);
+      @media (min-width:920px) {
+        @include m.iconEvents;
+      }
+    }
+    &__label--close {
+      opacity: var(--opacidad-cerrar);
+      pointer-events: var(--puntero-cerrar);
+      @media (min-width:920px) {
+        @include m.iconEvents;
+      }
+    }
+    &__icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    &__logo {
+      display: block;
+      width: 150px;
+      grid-area: logo;
+    }
+    .switch {
+      font-size: 17px;
+      position: relative;
+      display: inline-block;
+      width: 64px;
+      height: 34px;
+      left: calc(50% - 32px);
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #73C0FC;
+      transition: .4s;
+      border-radius: 30px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 30px;
+      width: 30px;
+      border-radius: 20px;
+      left: 2px;
+      bottom: 2px;
+      z-index: 2;
+      background-color: #e8e8e8;
+      transition: .4s;
+    }
+    
+    .sun svg {
+      position: absolute;
+      top: 6px;
+      left: 36px;
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .moon svg {
+      fill: #73C0FC;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      z-index: 1;
+      width: 24px;
+      height: 24px;
+    }
+    
+    /* .switch:hover */.sun svg {
+      animation: rotate 15s linear infinite;
+    }
+    
+    @keyframes rotate {
+     
+      0% {
+        transform: rotate(0);
+      }
+    
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
+    /* .switch:hover */.moon svg {
+      animation: tilt 5s linear infinite;
+    }
+    
+    @keyframes tilt {
+     
+      0% {
+        transform: rotate(0deg);
+      }
+    
+      25% {
+        transform: rotate(-10deg);
+      }
+    
+      75% {
+        transform: rotate(10deg);
+      }
+    
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    
+    .input:checked + .slider {
+      background-color: #183153;
+    }
+    
+    .input:focus + .slider {
+      box-shadow: 0 0 1px #183153;
+    }
+    
+    .input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+  }
 }

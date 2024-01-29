@@ -1,0 +1,10 @@
+@mixin opacityMenu($oabrir,$pabrir,$oCerrar,$pCerra){
+  --opacidad-abrir: $oabrir;
+  --puntero-abrir: $pabrir;
+  --opacidad-cerrar: $oCerrar;
+  --puntero-cerrar: $pCerra;
+}
+@mixin iconEvents(){
+  opacity: 0;
+  pointer-events: none;
+}
