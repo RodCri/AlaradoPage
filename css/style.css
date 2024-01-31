@@ -34,7 +34,9 @@ body {
   grid-template-areas: "logo menu";
   align-items: center;
   height: 64px;
-  padding: 0 24px;
+  width: 90%;
+  max-width: 1440px;
+  margin: 1rem auto;
 }
 @media (min-width: 920px) {
   .header .nav {
