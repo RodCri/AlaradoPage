@@ -1,0 +1,11 @@
+.dark-mode {
+  background-color: black;
+  color: white;
+  .header{
+    .nav{
+      .nav__link{
+        color: red;
+      }
+    }
+  }
+}
