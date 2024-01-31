@@ -242,3 +242,100 @@ body{
 
   }
 }
+.content{
+  .hero{
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @media(min-width: 1280px){
+      flex-direction: row-reverse;
+      margin: 5rem auto;
+      align-items: center;
+    }
+    &__fig{
+      width: 100%;
+      text-align: center;
+      @media(min-width: 1280px){
+        width: 50%;
+      }
+      .home-img{
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+    &__info{
+      @media(min-width: 1280px){
+        width: 50%;
+      }
+      .hero__subtitle{
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        color: v.$text-body;
+      }
+      .hero__title{
+        font-size: 6rem;
+        color: v.$text-body;
+        margin-bottom: 2rem;
+        @media(min-width: 980px){
+          width: 800px;
+        }
+        @media(min-width: 1280px){
+          width: 400px;
+          font-size: 7rem;
+        }
+      }
+      .hero__description{
+        font-size: 1.7rem;
+        color: v.$text-link-nav;
+        line-height: 1.6;
+        font-weight: 600;
+        @media(min-width: 600px){
+          width: 500px;
+        }
+      }
+      .hero__cta{
+        margin: 4rem 0;
+        display: flex;
+        gap: 1rem;
+        .cta:first-child{
+          @include m.cta(v.$bg-cta,1rem,v.$text-white,none);
+          transition: all .3s ease;
+          &:hover{
+            background-color: v.$bg-body;
+            color: v.$bg-cta;
+            box-shadow: 0 2px 10px 0 v.$bg-cta;
+          }
+        }
+        .cta:last-child{
+          @include m.cta(v.$bg-body,1rem,v.$bg-cta,underline);
+          text-decoration-thickness: 2px;
+          transition: all .2s ease;
+          &:hover{
+            transform: translateY(-2px);
+            font-size: 1.7rem;
+            color: v.$check;
+          }
+        }
+        @media(min-width: 1280px){
+          margin: 6rem 0;
+        }
+      }
+      .hero__check{
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        .check{
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center;
+          gap: .8rem;
+        }
+      }
+    }
+  }
+}
