@@ -1,9 +1,27 @@
 .dark-mode {
-  background-color: black;
+  background-color: #111729;
   color: white;
 }
+.dark-mode .header .nav .nav__figure .nav__img {
+  content: url("../img/alarado-white.svg");
+}
 .dark-mode .header .nav .nav__link {
-  color: red;
+  color: #909193;
+}
+.dark-mode .header .nav .nav__link:hover {
+  color: #F2F9FE;
+}
+.dark-mode .header .nav .nav__link--active {
+  color: #FFFFFF;
+}
+.dark-mode .content .hero__info .hero__subtitle {
+  color: #F2F9FE;
+}
+.dark-mode .content .hero__info .hero__title {
+  color: #F2F9FE;
+}
+.dark-mode .content .hero__info .hero__cta .cta:last-child {
+  background-color: #111729;
 }
 
 * {
@@ -375,6 +393,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  color: #909193;
 }
 
 /*# sourceMappingURL=style.css.map */
